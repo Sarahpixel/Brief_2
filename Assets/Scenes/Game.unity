@@ -2426,7 +2426,8 @@ MonoBehaviour:
   m_text: 'You Survived!
 
 
-    *ps you''re a murder
+    *ps you''re a murderer
+
 
 '
   m_isRightToLeft: 0
@@ -3757,7 +3758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a56ced7585d864fb3532788f0125e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 2000
+  mouseSensitivity: 200
   playerBody: {fileID: 7320609201583546653}
 --- !u!4 &758087241290458646
 Transform:
