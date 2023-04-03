@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
     private GameObject player;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+       
         EnemyHealth -= damage;
 
         if (EnemyHealth <= 0)
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
             Invoke(nameof(DestroyEnemy), 1f);
             Instantiate(vfxDeath, transform.position, Quaternion.identity);
         }
+        
     }
     private void DestroyEnemy()
     {
