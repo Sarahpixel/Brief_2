@@ -5,26 +5,40 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-
-    public float EnemyHealth = 50;
+    //public int value = 50;
+    //private Camera mainCamera;
+    public float EnemyHealth = 10;
 
     public Transform vfxDeath;
-    public float speed = 3.0f;
+    //public float speed = 8.0f;
     private Rigidbody enemyRb;
-    private GameObject player;
+    //private Vector3 screenBounds;
+    //private GameObject player;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player");
+        //enemyRb.velocity = new Vector3(-speed, 0);
+        //screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+        //player = GameObject.Find("Player");
     }
-    void Update()
-    {
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * speed);
-    }
+    //void Update()
+    //{
+    //    Vector2 screenPosition = mainCamera.WorldToScreenPoint(transform.position);
+    //    //if (transform.position.x < screenBounds.x * 5)
+    //    //{
+    //    //    Destroy(this.gameObject);
+    //    //}
+    //    //Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+    //    //enemyRb.AddForce(lookDirection * speed);
+    //}
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    ScoreManager.Instance.Score += value;
+    //}
     public void TakeDamage(int damage)
     {
        

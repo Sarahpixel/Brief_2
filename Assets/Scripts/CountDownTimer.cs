@@ -5,28 +5,38 @@ using UnityEngine;
 
 public class CountDownTimer : MonoBehaviour
 {
-   
+
+    public static CountDownTimer Instance;
     float currentTime = 0f;
     float startingTime = 35f;
     public TextMeshProUGUI timerText;
     public GameObject inGamePanel;
     public GameObject pausePanel;
-
+    bool timerStarted = false;
     public GameObject gameOverPanel;
 
 
 
     void Start()
     {
+        Instance= this;
         gameOverPanel.SetActive(false);
         currentTime = startingTime;
     }
 
 
-    void Update()
+    void countdownfunction()
     {
         currentTime -= 1 * Time.deltaTime;
         timerText.text = currentTime.ToString("0");
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+            timerStarted = true;
+        if (timerStarted)
+            countdownfunction();
 
         if (currentTime <= 0)
         {
@@ -48,7 +58,7 @@ public class CountDownTimer : MonoBehaviour
         }
         if (currentTime >= 5.5f)
         {
-            timerText.color = Color.black;
+            timerText.color = Color.white;
         }
     }
 }

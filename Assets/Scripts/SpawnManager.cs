@@ -4,10 +4,30 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour 
 {
+    public GameObject cowPrefab;
+    public float respawnTime = 1.0f;
+    private Vector3 screenBounds;
 
-
-
-
+    // Use this for initialization
+    void Start()
+    {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        StartCoroutine(Wave());
+    }
+    private void spawnEnemy()
+    {
+        GameObject a = Instantiate(cowPrefab) as GameObject;
+        a.transform.position = new Vector2(screenBounds.x * -2, Random.Range(-screenBounds.y, screenBounds.y));
+    }
+    IEnumerator Wave()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(respawnTime);
+            spawnEnemy();
+        }
+    }
+    
 
 
 

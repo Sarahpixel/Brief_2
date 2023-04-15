@@ -8,7 +8,7 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField] private Transform vfxblood;
     private Rigidbody bulletRigidBody;
 
-
+    public int value = 50;
     private void Awake()
     {
         bulletRigidBody = GetComponent<Rigidbody>();
@@ -26,6 +26,8 @@ public class BulletProjectile : MonoBehaviour
         {
             //hit target
             other.gameObject.GetComponent<Enemy>().TakeDamage(20);
+            ScoreManager.Instance.Score += value;
+            ScoreManager.Instance.AddScore();
             Instantiate(vfxblood, transform.position, Quaternion.identity);
         }
         else
