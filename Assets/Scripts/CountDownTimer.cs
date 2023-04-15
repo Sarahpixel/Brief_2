@@ -8,7 +8,7 @@ public class CountDownTimer : MonoBehaviour
 
     public static CountDownTimer Instance;
     float currentTime = 0f;
-    float startingTime = 35f;
+    float startingTime = 25f;
     public TextMeshProUGUI timerText;
     public GameObject inGamePanel;
     public GameObject pausePanel;
@@ -58,7 +58,7 @@ public class CountDownTimer : MonoBehaviour
         }
         if (currentTime >= 5.5f)
         {
-            timerText.color = Color.white;
+            timerText.color = Color.black;
         }
     }
 }
